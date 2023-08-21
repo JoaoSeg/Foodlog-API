@@ -1,5 +1,5 @@
 <% content_for :title do %>
-FoodLog &ndash; <%= DateTime.now %>
+FoodLog &ndash; <%= Time.new.strftime("%B %d, %Y") %>
 <% end %>
 
 <div class="columns mt-6 is-centered">
@@ -19,9 +19,9 @@ FoodLog &ndash; <%= DateTime.now %>
           </div>
         </div>
         <div class="card-footer">
-          <%= link_to "Show this entry", entry, class:"card-footer-item"%>
+          <%= link_to 'Show', entry, class:"card-footer-item"%>
           <%= link_to  'Edit', edit_entry_path(entry), class:"card-footer-item" %>
-          <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?'}, class:"card-footer-item" %>
+          <%= link_to 'Destroy', entry,  data: { turbo_confirm: 'Are you sure?', 'turbo-method': :delete}, class:"card-footer-item" %>
         </div>
       </div>
     </div>

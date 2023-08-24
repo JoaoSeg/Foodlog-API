@@ -45,7 +45,14 @@
     <div class="select">
       <%= form.select :category_id, Category.all.collect {|u| [u.title, u.id]}%>
     </div>
-  </div>  
+  </div>
+
+
+  <div class="field">
+    <%= form.label :user_id, class:"label", style: "display: block" %>
+    <%= form.number_field :user_id, class:"input", value:current_user %>
+  </div>
+
 
   <div  class="actions">
     <%= form.submit class:"button is-success"%>
